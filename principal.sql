@@ -40,7 +40,6 @@ CREATE TABLE Productos (
     Descripcion VARCHAR(300),
     Precio DECIMAL(10,2) NOT NULL,
     Stock INT NOT NULL,
-    Img varchar(200) default 'https://w7.pngwing.com/pngs/61/877/png-transparent-virus-theat-found-illustration-thumbnail.png',
     IdCategoria INT FOREIGN KEY REFERENCES Categorias(IdCategoria),
     ImagenURL VARCHAR(255)
 )
@@ -197,7 +196,7 @@ INSERT INTO Productos (Nombre, Descripcion, Precio, Stock, IdCategoria, ImagenUR
 ('Reloj despertador digital', 'Reloj despertador digital con radio', 35.00, 25, 8, 'https://example.com/reloj.jpg');
 GO
 
-select P.Precio, P.Nombre, P.Img, C.Nombre as 'Categoria'
+select P.Precio, P.Nombre, P.ImgURL, C.Nombre as 'Categoria'
 from Productos P
 INNER JOIN Categorias C on P.IdCategoria = C.IdCategoria
 GO
